@@ -16,6 +16,17 @@ public class Student
         this.setGender(gender);
     }
 
+    public Student (String name, boolean isMann, int cm, int kg){
+        this.setName(name);
+        this.setKg(kg);
+        this.setCm(cm);
+        if (isMann){
+            this.setGender('m');
+        } else {
+            this.setGender('w');
+        }
+    }
+    
     public void setName (String name){
         if(name.length() < 3 || name.length () > 50){
             throw new IllegalArgumentException("Name muss 3 bis 50 Buchstaben lang sein");
@@ -81,7 +92,7 @@ public class Student
             if (BMI() < 19) {
                 return "Untergewicht";
             } 
-            else if (BMI() < 24 && BMI() > 20) {
+            else if (BMI() < 24 && BMI() > 19) {
                 return "Normalgewicht";
             } 
             else {
